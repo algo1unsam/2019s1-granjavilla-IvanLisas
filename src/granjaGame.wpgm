@@ -25,7 +25,6 @@ program granjaGame {
 	keyboard.o().onPressDo { hector.plantarSemilla(new SemillaDeTomaco()) }
 	
 // COLISIONES
-
 	
 //	START 
 	game.start()

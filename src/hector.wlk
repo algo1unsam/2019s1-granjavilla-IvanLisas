@@ -8,8 +8,14 @@ object hector {
 	method image() = "player.png"
 	
 	method plantarSemilla(semilla) {
-		if(self.noHayOtraPlanta(semilla)) semilla.generar(position)
+		if(self.noHayOtraPlanta()) semilla.generar(position)
 	}
 	
-	method noHayOtraPlanta(semilla) = true
+	method noHayOtraPlanta() = game.colliders(self).isEmpty()
+	
+	method colicionasteConSemilla(semilla) { 
+		keyboard.r().onPressDo {
+			semilla.regar(true)
+		}
+	}
 }
