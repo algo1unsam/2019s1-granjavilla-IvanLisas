@@ -24,7 +24,13 @@ program granjaGame {
 	keyboard.t().onPressDo { hector.plantarSemilla(new SemillaDeTrigo()) }
 	keyboard.o().onPressDo { hector.plantarSemilla(new SemillaDeTomaco()) }
 	
+	keyboard.r().onPressDo { hector.regar() }
+	keyboard.c().onPressDo { hector.cosechar() }
+	keyboard.space().onPressDo { hector.decirQueTengo() }
+	keyboard.v().onPressDo { hector.vender() }
+	
 // COLISIONES
+
 	
 //	START 
 	game.start()
