@@ -21,7 +21,6 @@ object hector {
 		" monedas y " + self.cantidadDePlantas().toString() + " plantas." )
 	}
 
-	
 	//PLANTAS
 	method agregarPlanta(planta) { plantas.add(planta) }
 	
@@ -31,17 +30,23 @@ object hector {
 
 	method noHayOtraPlanta() = game.colliders(self).isEmpty()
 	
-	method regar() { (game.colliders(self)).forEach { planta => planta.seRego() } }
+	method regar() { 
+		if(not(self.noHayNadaParaRegar())) { (game.colliders(self)).forEach { planta => planta.seRego() } }
+		else self.decirNoHayNadaParaRegar()	 
+	}
+	
+	method decirNoHayNadaParaRegar() = game.say(self,"No hay nada para regar")
+	
+	method noHayNadaParaRegar() = (game.colliders(self)).isEmpty()
 	
 	method cosechar() { (game.colliders(self)).forEach { planta => planta.cosechar(self) } }
 	
 	method valorDeTodasLasPlantas() = plantas.sum { planta => planta.valor() }
 	
+	method mostrarPlantas() = plantas
+	
 	method borrarPlantas() { plantas.clear() }
 	
 	//VENTA
-	method vender() {
-		self.agregarMonedas(self.valorDeTodasLasPlantas())
-		self.borrarPlantas()
-	}
+	method vender() { (game.colliders(self)).forEach { mercado => mercado.comprar(self) } }
 }

@@ -7,7 +7,6 @@ object nivel0Trigo {
 	method nivel() = 0
 	
 	method evolucion(trigo) { trigo.nivelDeTrigo(nivel1Trigo) }
-	
 }
 
 object nivel1Trigo {
@@ -16,7 +15,6 @@ object nivel1Trigo {
 	method nivel() = 1
 	
 	method evolucion(trigo) { trigo.nivelDeTrigo(nivel2Trigo) }
-	
 }
 
 object nivel2Trigo {

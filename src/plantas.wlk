@@ -10,14 +10,19 @@ class Planta {
 		game.addVisual(self)
 	}
 	
-	method listaParaCosechar()
-	
 	method cosechar(persona) {
 		if(self.listaParaCosechar()){
 			game.removeVisual(self)
 			persona.agregarPlanta(self)
 		}
+		else game.say(self,"No se puede cosechar")
 	}
+	
+	method valor()
+	
+	method listaParaCosechar()
+	
+	//method decirAlgo(){ game.say(self,"Valgo " + self.valor().toString() + " monedas") }
 }
 
 class SemillaDeMaiz inherits Planta {
@@ -32,7 +37,7 @@ class SemillaDeMaiz inherits Planta {
 	
 	override method listaParaCosechar() = self.regada()
 	
-	method valor() = 150
+	override method valor() = 150
 }
 
 class SemillaDeTrigo inherits Planta {
@@ -44,7 +49,7 @@ class SemillaDeTrigo inherits Planta {
 	
 	override method listaParaCosechar() = self.nivelDeTrigo().nivel() > 1
 
-	method valor() = (nivelDeTrigo.nivel() - 1) * 100
+	override method valor() = (nivelDeTrigo.nivel() - 1) * 100
 }
 
 class SemillaDeTomaco inherits Planta {
@@ -59,7 +64,7 @@ class SemillaDeTomaco inherits Planta {
 	
 	override method listaParaCosechar() = true
 	
-	method valor() = 80
+	override method valor() = 80
 }
 
 

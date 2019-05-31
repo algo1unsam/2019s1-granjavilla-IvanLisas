@@ -1,6 +1,7 @@
 import wollok.game.*
 import hector.*
 import plantas.*
+import mercado.*
 
 program granjaGame {
 	
@@ -12,6 +13,11 @@ program granjaGame {
 
 //	VISUALES
 	game.addVisual(hector)
+	
+	game.addVisual(new Mercado(position = game.at(5,10),monedas = 1000))
+	game.addVisual(new Mercado(position = game.at(10,5),monedas = 2000))
+	game.addVisual(new Mercado(position = game.at(15,8),monedas = 3000))
+	game.addVisual(new Mercado(position = game.at(1,3),monedas = 1000))
 
 //	TECLADO
 	keyboard.up().onPressDo { hector.move(hector.position().up(1)) }
@@ -30,7 +36,7 @@ program granjaGame {
 	keyboard.v().onPressDo { hector.vender() }
 	
 // COLISIONES
-
+	//game.whenCollideDo(hector, { alguien => alguien.decirAlgo() })	
 	
 //	START 
 	game.start()
