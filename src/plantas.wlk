@@ -15,7 +15,7 @@ class Planta {
 			game.removeVisual(self)
 			persona.agregarPlanta(self)
 		}
-		else game.say(self,"No se puede cosechar")
+		else error.throwWithMessage("No se puede cosechar")
 	}
 	
 	method valor()

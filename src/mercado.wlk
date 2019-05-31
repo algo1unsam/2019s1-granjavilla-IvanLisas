@@ -14,6 +14,8 @@ class Mercado{
 	
 	method seRego() {}
 	
+	method cosechar(algo) {}
+	
 	//PLANTAS
 	method agregarPlantasAlInventario(plantas) { inventario.addAll(plantas)}
 	
@@ -24,7 +26,7 @@ class Mercado{
 	//COMPRA
 	method restarMonedas(nuevasMonedas) { monedas-= nuevasMonedas }
 	
-	method noMeAlcanza() { game.say(self,"No me alcanzan las monedas") }
+	method noMeAlcanza() { error.throwWithMessage("No le alcanzan las monedas") }
 	
 	method comprar(persona) {
 		if(persona.valorDeTodasLasPlantas() < monedas){
@@ -34,6 +36,6 @@ class Mercado{
 			persona.borrarPlantas()
 			self.decirStock()
 		}
-		else self.noMeAlcanza()
+		else self.noMeAlcanza() 
 	}
 }

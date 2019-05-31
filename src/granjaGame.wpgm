@@ -3,8 +3,7 @@ import hector.*
 import plantas.*
 import mercado.*
 
-program granjaGame {
-	
+program granjaGame {	
 //	CONFIG	
 	game.title("granja")
 	game.height(15)
@@ -39,5 +38,6 @@ program granjaGame {
 	//game.whenCollideDo(hector, { alguien => alguien.decirAlgo() })	
 	
 //	START 
+	game.errorReporter(hector)
 	game.start()
 }
